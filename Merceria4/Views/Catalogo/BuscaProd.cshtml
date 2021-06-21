@@ -1,0 +1,22 @@
+﻿@using Merceria4.Models
+@{
+    ViewBag.Title = "BuscaProd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Busqueda de productos @ViewBag.SearchKey</h2>
+@foreach (Productos productos in ViewBag.Listado)
+{
+
+    @productos.Nombre
+    <br />
+    @productos.Precio_Venta
+    <br />
+    @productos.Existencia
+    <br />
+    <p><a href="@Url.Action("Agregar","Carro",new {id =productos.Id})" class="btn btn-primary">Agregar a Carrito</a></p>
+
+}
+
+
+

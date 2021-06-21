@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f60500a5a46d40b7b3703d0709dcaa48" Name="Diagram1">
+        <EntityTypeShape EntityType="Merceria2Model.Productos" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Merceria2Model.Tarjetas" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Merceria2Model.Usuarios" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="Merceria2Model.fk_Usuario_Tarjeta" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Merceria2Model.Categorias" Width="1.5" PointX="1.5" PointY="9.375" />
+        <EntityTypeShape EntityType="Merceria2Model.Compras" Width="1.5" PointX="5.25" PointY="4.75" />
+        <EntityTypeShape EntityType="Merceria2Model.DetalleVenta" Width="1.5" PointX="5.5" PointY="11" />
+        <EntityTypeShape EntityType="Merceria2Model.Direcciones" Width="1.5" PointX="3.25" PointY="13.125" />
+        <EntityTypeShape EntityType="Merceria2Model.Envios" Width="1.5" PointX="5.5" PointY="16.875" />
+        <EntityTypeShape EntityType="Merceria2Model.ImagenesProducto" Width="1.5" PointX="5.25" PointY="8.125" />
+        <EntityTypeShape EntityType="Merceria2Model.Paqueterias" Width="1.5" PointX="3.25" PointY="21.125" />
+        <EntityTypeShape EntityType="Merceria2Model.Subcategorias" Width="1.5" PointX="0.75" PointY="6.25" />
+        <EntityTypeShape EntityType="Merceria2Model.TipoUsuario" Width="1.5" PointX="1" PointY="13" />
+        <EntityTypeShape EntityType="Merceria2Model.Ventas" Width="1.5" PointX="3.25" PointY="17" />
+        <AssociationConnector Association="Merceria2Model.fk_Categorias" />
+        <AssociationConnector Association="Merceria2Model.fk_Producto_Compra" />
+        <AssociationConnector Association="Merceria2Model.fk_DetalleVenta" />
+        <AssociationConnector Association="Merceria2Model.fk_DetalleVentaProducto" />
+        <AssociationConnector Association="Merceria2Model.fk_Usuario" />
+        <AssociationConnector Association="Merceria2Model.fk_EnviosPaqueteria" />
+        <AssociationConnector Association="Merceria2Model.fk_EnviosVenta" />
+        <AssociationConnector Association="Merceria2Model.fk_ProductoImagen" />
+        <AssociationConnector Association="Merceria2Model.fk_Subcategorias" />
+        <AssociationConnector Association="Merceria2Model.fk_TipoUsuario" />
+        <AssociationConnector Association="Merceria2Model.fk_UsuarioVenta" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

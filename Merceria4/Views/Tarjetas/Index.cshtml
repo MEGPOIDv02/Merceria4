@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Merceria4.Models.Tarjetas>
+
+@{
+    ViewBag.Title = "Tarjetas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tarjetas</h2>
+
+<p><a href="@Url.Action("Create","Tarjetas")" class="btn btn-primary">Agregar tarjeta</a>
+</p>
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Numero_Tarjeta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mes_Vencimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Anio_Vencimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuarios.Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numero_Tarjeta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mes_Vencimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Anio_Vencimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuarios.Nombre)
+            </td>
+            <td>
+                <p><a href="@Url.Action("Edit","Tarjetas")" class="btn btn-success">Editar</a></p>
+                <p><a href="@Url.Action("Delete","Tarjetas")" class="btn btn-danger">Eliminar</a></p>
+            </td>
+        </tr>
+    }
+
+</table>

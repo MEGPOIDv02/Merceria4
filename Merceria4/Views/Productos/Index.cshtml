@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Merceria4.Models.Productos>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Productos</h2>
+
+
+
+<div class="row">
+    <div class="col-md-4" style="text-align:center">
+        <h2>Hilo Cañamo</h2>
+        <p>
+            <img src="~/Content/img/HilosColores.jpg"
+                 width="260"
+                 height="330" />
+        </p>
+        <p><a href="@Url.Action("Agregar","Carro",new {id =1})" class="btn btn-primary">Agregar a Carrito</a></p>
+    </div>
+    <div class="col-md-4" style="text-align:center">
+        <h2>Hilo para bordar</h2>
+        <p>
+            <img src="~/Content/img/Hilo bordar.jpg"
+                 width="280"
+                 height="330" />
+        </p>
+        <p><a href="@Url.Action("Agregar","Carro",new {id =2})" class="btn btn-primary">Agregar a Carrito</a></p>
+    </div>
+    <div class="col-md-4" style="text-align:center">
+        <h2>Hilo en bola</h2>
+        <p>
+            <img src="~/Content/img/HilosBola.jpg"
+                 width="280"
+                 height="330" />
+        </p>
+        <p><a href="@Url.Action("Agregar","Carro",new {id =3})" class="btn btn-primary">Agregar a Carrito</a></p>
+    </div>
+</div>
+
+
+<!--
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio_Compra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio_Venta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Existencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subcategorias.Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+foreach (var item in Model) {
+    <tr>
+        <td>
+            Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            Html.DisplayFor(modelItem => item.Precio_Compra)
+        </td>
+        <td>
+            Html.DisplayFor(modelItem => item.Precio_Venta)
+        </td>
+        <td>
+            Html.DisplayFor(modelItem => item.Existencia)
+        </td>
+        <td>
+            Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+            Html.DisplayFor(modelItem => item.Subcategorias.Nombre)
+        </td>
+        <td>
+            Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+        }
+
+</table>
+    -->

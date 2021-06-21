@@ -1,0 +1,103 @@
+﻿@using Merceria4.Models
+@{
+                /**/
+
+                ViewBag.Title = "Index";
+                Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2 class="text-center" style="font-family: 'Playfair Display'">Carro</h2>
+    <br />
+    <p style="text-align:justify;font-family: 'Playfair Display'">Aqui se mostraran todos tus productos</p>
+    <br />
+</div>
+
+<div class="container">
+    <input class="form-control" id="myInput" type="text" placeholder="Buscar..">
+    <br>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            @{
+                if (Session["cart"] == null)
+                {
+                    <tr> No hay productos en el carrito</tr>
+                }
+                else
+                {
+                    foreach (Item item in (List<Item>)Session["cart"])
+                    {
+                        <tr>
+                            <td>
+                                <div style="display:flex;justify-content:space-around">
+                                    <img style="height:5rem;width:5rem" src="~/Content/img/HilosColores.jpg" alt="Alternate Text" />
+                                    <div>
+                                        <h4>@item.Product.Nombre</h4>
+                                        <a href="@Url.Action("Eliminar", "Carro", new { id = item.Product.Id})">Quitar</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>$ @item.Product.Precio_Venta</td>
+                            <td> <a class="glyphicon glyphicon-chevron-left" href="Carro/Eliminar2/@item.Product.Id"></a>@item.Cantidad<a class="glyphicon glyphicon-chevron-right" href="Carro/Agregar/@item.Product.Id"></a> unidades</td>
+                            <td>$ @(item.Product.Precio_Venta * item.Cantidad)</td>
+                        </tr>
+                    }
+                }
+
+
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td style="font-weight:700">Total</td>
+                <td style="font-weight:700">
+                    $ @{
+                        var total = 0.0;
+                        if (Session["cart"] == null)
+                        {
+                            total = 0.0;
+                        }
+                        else
+                        {
+                            List<Item> cart = (List<Item>)Session["cart"];
+                            total = (double)cart.Sum(item => item.Product.Precio_Venta * item.Cantidad);
+                        }
+                    }
+                    @total
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <p style="font-family: 'Playfair Display'">Nota: Puede realizar una busqueda rapida en la parte superior de la tabla.</p>
+</div>
+
+<br />
+
+<div style="display:flex;justify-content:space-around">
+    <a class="btn btn-info" style="width:50rem;font-size:2rem;font-family: 'Playfair Display'" href="@Url.Action("Index", "Home")">Seguir comprando</a>
+    <br />
+    <a class="btn btn-success" style="width:50rem;font-size:2rem;font-family: 'Playfair Display'" href="@Url.Action("preOrden", "Carro")">Finalizar compra</a>
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
